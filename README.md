@@ -1,4 +1,4 @@
-# idcd_flutter_berginner
+# idcd_flutter_beginner
 
 A new Flutter project.
 

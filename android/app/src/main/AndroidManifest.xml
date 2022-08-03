@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.idcd_flutter_berginner">
+    package="com.example.idcd_flutter_beginner">
    <application
-        android:label="idcd_flutter_berginner"
+        android:label="idcd_flutter_beginner"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
