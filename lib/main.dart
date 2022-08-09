@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:idcd_flutter_beginner/responsive_layout.dart';
+import 'package:idcd_flutter_beginner/scrolling_screen.dart';
+import 'package:idcd_flutter_beginner/expanded_flexible.dart';
+import 'package:idcd_flutter_beginner/navigation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,29 +18,31 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const FirstScreen());
+        home: const ResponsivePage());
   }
 }
 
-class FirstScreen extends StatefulWidget {
-  const FirstScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<FirstScreen> createState() => _FirstScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _FirstScreenState extends State<FirstScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   String? language;
   // String _name = ''; // for onChange
   // final TextEditingController _controller = TextEditingController(); //for controller
   bool lightOn = false;
   bool agree = false;
 
+  final String message = 'Hello from first screen';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('FirstScreen'),
+        title: const Text('HomeScreen'),
         actions: [
           IconButton(
             onPressed: () {},
@@ -248,11 +254,13 @@ class _FirstScreenState extends State<FirstScreen> {
       //   ),
       // ),
 
-      // Body for Font Example
-      body: Text(
-        'Font Oswald',
-        style: TextStyle(fontFamily: 'Oswald', fontSize: 30),
-      ),
+      // // Body for Font Example
+      // body: const Text(
+      //   'Font Oswald',
+      //   style: TextStyle(fontFamily: 'Oswald', fontSize: 30),
+      // ),
+
+      
 
       floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.favorite), onPressed: () {}),
@@ -271,5 +279,33 @@ class _FirstScreenState extends State<FirstScreen> {
       content: Text('$language selected'),
       duration: const Duration(seconds: 1),
     ));
+  }
+}
+
+class FirstScreen extends StatelessWidget {
+  const FirstScreen({Key? key}) : super(key: key);
+
+  final String message = 'Hello from First Screen';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('First Screen'),
+      ),
+      // Body for Navigation Example
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(context, 
+              MaterialPageRoute(builder: (context) {
+                return SecondScreen(message);
+              },));
+          },
+          child: const Text('Pindah Screen')
+        ),
+      ),
+    
+    );
   }
 }
